@@ -40,11 +40,11 @@ heart_score = history + ecg + age_bucket + risk + troponin
 # Display the HEART Score classification
 classification = ""
 if heart_score <= 3:
-    classification = "Low Score (0-3 points)\nRisk of MACE of 0.9-1.7%."
+    classification = "Low Score: 0-3 points\nRisk of MACE of 0.9-1.7%."
 elif heart_score <= 6:
-    classification = "Moderate Score (4-6 points)\nRisk of MACE of 12-16.6%."
+    classification = "Moderate Score: 4-6 points\nRisk of MACE of 12-16.6%."
 else:
-    classification = "High Score (7+ points)\nRisk of MACE of 50-65%."
+    classification = "High Score: 7+ points\nRisk of MACE of 50-65%."
 
 st.subheader("HEART Score Calculation Result")
-st.markdown(f"**HEART Score:** {classification}")
+st.markdown(classification)
