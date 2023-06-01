@@ -30,22 +30,44 @@ risk_labels = ["None", "1-2 risk factors", ">=3 risk factors"]
 risk_values = [0, 1, 2]
 risk = risk_values[risk_labels.index(risk_selected)]
 
-troponin_options = ["≤ Normal Limit", "1-3× Normal Limit", "> 3× Normal Limit"]
+troponin_options = ["≤ Normal Limit", "1-3 × Normal Limit", ">3 × Normal Limit"]
 troponin_selected = st.selectbox("Troponin", troponin_options)
 troponin_values = [0, 1, 2]
 troponin = troponin_values[troponin_options.index(troponin_selected)]
 
 heart_score = history + ecg + age_bucket + risk + troponin
 
+# # Display the HEART Score classification
+# classification = ""
+# if heart_score <= 3:
+#     classification = "Low Score: 0-3 points\nRisk of MACE of 0.9-1.7%."
+# elif heart_score <= 6:
+#     classification = "Moderate Score: 4-6 points\nRisk of MACE of 12-16.6%."
+# else:
+#     classification = "High Score: 7+ points\nRisk of MACE of 50-65%."
+
+# st.subheader("HEART Score Calculation Result")
+# st.markdown(classification.split("\n")[0])
+# st.markdown(classification.split("\n")[1])
+
 # Display the HEART Score classification
 classification = ""
-if heart_score <= 3:
-    classification = "Low Score: 0-3 points\nRisk of MACE of 0.9-1.7%."
-elif heart_score <= 6:
-    classification = "Moderate Score: 4-6 points\nRisk of MACE of 12-16.6%."
-else:
-    classification = "High Score: 7+ points\nRisk of MACE of 50-65%."
+result_shown = False
 
-st.subheader("HEART Score Calculation Result")
-st.markdown(classification.split("\n")[0])
-st.markdown(classification.split("\n")[1])
+# Add the "Calculate" button
+if st.button("Calculate"):
+    classification = ""
+    result_shown = True
+
+    if heart_score <= 3:
+        classification = "Low Score: 0-3 points\nRisk of MACE of 0.9-1.7%."
+    elif heart_score <= 6:
+        classification = "Moderate Score: 4-6 points\nRisk of MACE of 12-16.6%."
+    else:
+        classification = "High Score: 7+ points\nRisk of MACE of 50-65%."
+
+# Display the HEART Score calculation result if the button was clicked
+if result_shown:
+    st.subheader("HEART Score Calculation Result")
+    st.markdown(classification.split("\n")[0])
+    st.markdown(classification.split("\n")[1])
