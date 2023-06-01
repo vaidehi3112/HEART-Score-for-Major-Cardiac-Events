@@ -47,4 +47,5 @@ else:
     classification = "High Score: 7+ points\nRisk of MACE of 50-65%."
 
 st.subheader("HEART Score Calculation Result")
-st.markdown(classification)
+st.markdown(classification.split("\n")[0])
+st.markdown(classification.split("\n")[1])
