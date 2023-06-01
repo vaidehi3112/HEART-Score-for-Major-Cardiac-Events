@@ -12,10 +12,10 @@ The HEART Score Calculator is a web application that allows users to calculate t
 ## Usage
 To use the HEART Score Calculator, follow these steps:
 
-Access the web application through the provided URL or by running the application locally.
+1. Access the web application through the provided URL or by running the application locally.
 
-Fill in the required parameters, including History, ECG, Age, Risk Factors, and Troponin level.
+2. Fill in the required parameters, including History, ECG, Age, Risk Factors, and Troponin level.
 
-The calculated HEART Score and its risk classification will be displayed on the screen.
+3. The calculated HEART Score and its risk classification will be displayed on the screen.
 
-Based on the risk classification, healthcare professionals can make informed decisions about further diagnostic tests or patient management.
+4. Based on the risk classification, healthcare professionals can make informed decisions about further diagnostic tests or patient management.
