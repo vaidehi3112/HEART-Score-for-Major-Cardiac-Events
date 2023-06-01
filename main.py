@@ -16,14 +16,26 @@ ecg_values = [0, 1, 2]
 ecg = ecg_values[ecg_labels.index(ecg_selected)]
 
 age = st.number_input("Age", value=0, min_value=0)
+
+# Determine age bucket based on the provided criteria
+if age < 45:
+    age_bucket = 0
+elif age <= 64:
+    age_bucket = 1
+else:
+    age_bucket = 2
+
 risk_selected = st.selectbox("Risk Factors", ("None", "1-2 risk factors", ">=3 risk factors"))
 risk_labels = ["None", "1-2 risk factors", ">=3 risk factors"]
 risk_values = [0, 1, 2]
 risk = risk_values[risk_labels.index(risk_selected)]
 
-troponin = st.number_input("Troponin (ng/mL)", value=0, min_value=0)
+troponin_options = ["≤ Normal Limit", "1-3× Normal Limit", "> 3× Normal Limit"]
+troponin_selected = st.selectbox("Troponin", troponin_options)
+troponin_values = [0, 1, 2]
+troponin = troponin_values[troponin_options.index(troponin_selected)]
 
-heart_score = history + ecg + age + risk + troponin
+heart_score = history + ecg + age_bucket + risk + troponin
 
 # Display the HEART Score classification
 classification = ""
